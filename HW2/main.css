@@ -59,19 +59,16 @@ img {
   height: 100px;
 }
 
-input[type="text"]
-{
-    font-size:18px;
-    font-family: 'lato', 'serif';
-    width: 75%;
+hr {
+  width: 800px;
+  height: 3px;
+  border: none;
+  background-color: #F7B733;
 }
 
-form {
-  margin-left: 50px;
-  margin-right: 50px;
+textarea {
   font-family: 'lato', 'serif';
   font-size: 18px;
-  color: #FC4A1A;
 }
 
 #menu {

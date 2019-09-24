@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Homework 3a</title>
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+		<style>
+			body,html {padding: 0; margin: 0}
+			header h1 { text-align:center;
+				font-family: 'oleo script', helvetica;
+				font-size: 40px;
+				text-shadow: 2px 2px #33312d;
+			}
+			p {
+				font-family: 'source sans pro';
+				font-size: 16px;
+				color: #333333;
+				padding: 0 20px 0 20px;
+			}
+			header {
+				background-color: #A9A9A9; /*grey*/
+				color: #fff; 
+				padding: 2px 20px 2px 20px; 
+				width: 100%; 
+				box-sizing: border-box;
+			}
+
+			h2 {
+				font-family: 'oleo script', helvetica;
+				font-size: 40px;
+				text-align: center;
+				padding: 5px 5px;
+			}
+
+			h3 {
+				font-family: 'oleo script', helvetica;
+				font-size: 36px;
+				text-align: left;
+				padding: 0 20px 0 20px;
+			}
+			
+			
+			nav { 
+				background-color: #FF7FFF; /*pink*/
+				padding: 15px 0;
+				text-align: right;
+				padding: 10px 20px; 
+				border: solid 5px #A9A9A9;
+			}
+			nav a {
+				color: #333333; 
+				font-size: 19px; 
+				text-decoration: none;}
+			
+			nav ul {
+				list-style-type:none; 
+				width: 100%;
+				display: flex;
+  				justify-content: space-around;
+			}
+			nav ul li {
+				display: inline-block;
+			}
+
+			li {
+				font-family: "source sans pro";
+				font-size: 16px;
+			}
+
+
+			.submit-button {
+			  background-color: #333333;
+			  border: none;
+			  width: 50px;
+			  color: white;
+			  padding: 4px 10px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 14px;
+			  cursor:pointer;
+			}
+
+			#container {
+			    width: 100%;
+			    margin: auto;
+			    height: auto;
+			}
+			#first {
+			    width: 75%;
+			    float: left;
+			    background-color: #fff;
+			    border-bottom: solid 5px #A9A9A9;
+				border-right: solid 5px #A9A9A9;
+				border-right: solid 5px #A9A9A9;
+				min-height: 600px;
+			}
+			#second {
+			    width: 24%;
+			   	float: left;
+			    background-color: #FF7FFF; /*pink*/
+			    border-bottom: solid 5px #A9A9A9;
+				border-right: solid 5px #A9A9A9;
+				min-height: 600px;
+
+			}
+			#clear {
+			    clear: both;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Header</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">OUR TEAM</a></li>
+				<li><a href="#">PROJECTS</a></li>
+				<li><a href="#">CONTACT</a></li>
+				<li>
+					<form>
+						<input type='text' name='search' placeholder="Search query" style="width: 250px; height: 20px;";>
+						<input type = 'submit'; class="submit-button" value = "Go!"; width="100px";>
+					</form>
+				</li>
+			</ul>
+		</nav>
+		<div id="container">
+			<div id = "first"> 
+				<h2> Article header</h2>
+				<p> Graeco facilis pro id. Mei id quidam causae appellantur, eam eu facilisis honestatis. In eum delicata abhorreant, ex eum tale bonorum epicuri, in mei doming assentior. Eam at aliquid mediocrem, torquatos argumentum nec in. Cu cum officiis temporibus. Graeco facilis pro id. Mei id quidam causae appellantur, eam eu facilisis honestatis. In eum delicata abhorreant, ex eum tale bonorum epicuri, in mei doming assentior. Eam at aliquid mediocrem, torquatos argumentum nec in. Cu cum officiis temporibus. </p>
+				
+				<h3> Subsection </h3>
+				<p>Graeco facilis pro id. Mei id quidam causae appellantur, eam eu facilisis honestatis. In eum delicata abhorreant, ex eum tale bonorum epicuri, in mei doming assentior. Eam at aliquid mediocrem, torquatos argumentum nec in. Cu cum officiis temporibus. </p>
+
+				<h3> Another Subsection </h3>
+				<p>Graeco facilis pro id. Mei id quidam causae appellantur, eam eu facilisis honestatis. In eum delicata abhorreant, ex eum tale bonorum epicuri, in mei doming assentior. Eam at aliquid mediocrem, torquatos argumentum nec in. Cu cum officiis temporibus. </p>
+
+			</div>
+
+			<div id ="second";> 
+	  			<h2>Related</h2>
+	  				<ul>
+					  <li><a href="url">Oh I do like to be beside the seaside</a></li>
+					  <br />
+					  <li><a href="url">Oh I do like to be beside the seaside</a></li>
+					  <br />
+					  <li><a href="url">Although in the North of England</a></li>
+					  <br />
+					  <li><a href="url">It never stops raining</a></li>
+					  <br />
+					  <li><a href="url">Oh well...</a></li>
+					  <br />
+					</ul>
+			</div>
+
+		</div>
+		<p> ©Copyright 2050 by nobody. All rights reserved.</p>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+
+setlist {
+	background-color: #F2F2F2;
+}
+
+doc-title {
+	display: inline-block;
+	width: 100%;
+	font-size: 36px;
+	text-align: center;
+	border: solid 2px #000000;
+	margin-top: 10px;
+	background-color: #009999;
+	font-color: #fff;
+	padding: 10px;
+	color: #fff;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+left-col {
+	width: 45%;
+	float: left;
+	margin-left: 3%;
+	margin-top: 3%;
+}
+
+right-col {
+	width: 45%;
+	float: right;
+	margin-right: 3%;
+	margin-top: 3%;
+}
+
+song {
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+	background-color: #FFFACD;
+	border: solid 2px #000000;
+	padding: 10px 0 10px 0;
+
+}
+
+title {
+	color: #e30b5d;
+	font-size: 24px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+/*	font-family: 'Courier New', 'Courier', 'monospace';
+*/	font-weight: bold;
+	display: block;
+	margin-left: 20px;
+}
+
+artist {
+	color: #009999;
+	font-family: 'Courier New', 'Courier', 'monospace';	
+	display: block;
+	margin-left: 20px;
+	font-size: 18px;
+}
+
+genre {
+	color: #000000;
+	font-family: Georgia, serif;
+	display: block;
+	margin-left: 20px;
+}
+
+
+year {
+	color: #000000;
+	font-family: Georgia, serif;
+	display: block;
+	margin-left: 20px;
+	font-style: italic;
+}
+

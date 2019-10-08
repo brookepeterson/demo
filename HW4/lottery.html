@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Homework 4: Lottery</title>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+		<style> 
+			body,html {padding: 0; margin: 0}
+			h1 { text-align:center;
+				font-family: "Comic Sans MS", cursive, sans-serif;
+				font-size: 40px;
+			}
+			body {
+				text-align: center;
+				font-family: 'source sans pro';
+				font-size: 16px;
+				color: #333333;
+			}
+
+			p {
+				text-align: center;
+				font-family: 'source sans pro';
+				font-size: 16px;
+				color: #333333;
+			}
+			header {
+				background-color: #A9A9A9; /*grey*/
+				color: #fff; 
+				width: 100%; 
+				box-sizing: border-box;
+			}
+
+			h2 {
+				font-family: Georgia, serif;
+				font-size: 40px;
+				text-align: center;
+			}
+
+			h3 {
+				font-family: 'oleo script', helvetica;
+				font-size: 36px;
+				text-align: left;
+			}
+
+			.submit-button {
+			  background-color: #32CD32;
+			  border: none;
+			  color: white;
+			  padding: 4px 10px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 14px;
+			  cursor:pointer;
+			  border-radius: 5px;
+			}
+		</style>
+
+		<script language="javascript" type="text/javascript">
+			function generateRandNumber() {
+				return Math.floor(Math.random() * 48) + 1;
+			}
+
+			function getMoney()
+			{
+				val = document.getElementById("txt1").value;
+				splitArr = val.split(" ");
+				luckyBall = document.getElementById("txt2").value;
+
+				for(var i=0; i<splitArr.length; i++){ //converting to ints
+				splitArr[i] = +splitArr[i]; 
+				}
+
+				count = 0;
+				isLucky = false; 
+				for (var i = 0; i < splitArr.length; i++) {
+					if (nums.includes(splitArr[i])) {
+						count++; 
+					}
+					if (randLucky == luckyBall) {
+						isLucky = true; 
+					}
+				}
+
+				if (count == 0) {
+					if (isLucky) {
+						alert("Congratulations! You won $4!")
+					} else {
+						alert("Sorry! You didn't win anything.")
+					}
+				} else if (count == 1) {
+					if (isLucky) {
+						alert("Congratulations! You won $6!")
+					} else {
+						alert("Sorry! You didn't win anything.")
+					}
+				} else if (count == 2) {
+					if (isLucky) {
+						alert("Congratulations! You won $25!")
+					} else {
+						alert("Congratulations! You won $3!")
+					}
+				} else if (count == 3) {
+					if (isLucky) {
+						alert("Congratulations! You won $150!")
+					} else {
+						alert("Congratulations! You won $20!")
+					}
+				} else if (count == 4) {
+					if (isLucky) {
+						alert("Congratulations! You won $5,000!")
+					} else {
+						alert("Congratulations! You won $200!")
+					}
+				} else if (count == 5) {
+					if (isLucky) {
+						alert("Congratulations! You won $7,000 a week for life!")
+					} else {
+						alert("Congratulations! You won $25,000 a year for life!")
+					}
+				}
+			}
+
+		</script>
+	</head>
+
+	<body> 
+
+		<h1> Welcome to the Mass Lucky Lottery! </h1>
+		<script language="javascript" type="text/javascript">
+			var rand1, rand2, rand3, rand4, rand5, randLucky, val, luckyBall, splitArr, count, isLucky; 
+			rand1 = generateRandNumber();
+			rand2 = generateRandNumber();
+			rand3 = generateRandNumber();
+			rand4 = generateRandNumber();
+			rand5 = generateRandNumber();
+			randLucky = Math.floor(Math.random() * 18) + 1;
+			nums = new Array(rand1, rand2, rand3, rand4, rand5, randLucky);
+			document.write("Unsorted Numbers: ");
+			for (var i = 0; i < nums.length; i++) {
+				document.write(nums[i] + ", ");
+			}
+
+			document.write("<br>");
+
+			nums.sort(function(a, b){return a - b});
+			document.write("Sorted Numbers: ");
+			for (var i = 0; i < nums.length; i++) {
+				document.write(nums[i] + ", ");
+			}
+		</script>
+
+		<form>	
+			<p> 
+				<label> Enter five numbers, each separated by a space: </label><input type="text" id="txt1">
+			</p>
+			<p>
+				<label> Enter lucky ball number: </label> <input type="text" id="txt2">
+			</p>
+			<p> 
+				<input type='button' onclick='getMoney()' value="Show the value" class ="submit-button">
+			</p>
+		</form>
+			
+	</body>
+</html>
+
+
+
+
+

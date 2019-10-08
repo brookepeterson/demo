@@ -92,6 +92,7 @@
 			var discountSavings = 0; 
 			var discount = .1;
 			var tax = .0625; 
+			var discTotal = 0;
 			var isDiscount = false; 
 			var priceObj = {'Hot Dogs' : 3.25, 'French Fries' : 2, 'Drinks' : 1.5};
 			var quantObj = {'Hot Dogs' : 0, 'French Fries' : 0, 'Drinks' : 0};
@@ -109,27 +110,33 @@
 				var quantObj = {'Hot Dogs': numHotDog, 'French Fries': numFrenchFry, 'Drinks': numDrink};
 
 				var hotdogTotal = (quantObj["Hot Dogs"] * priceObj["Hot Dogs"]);
+				console.log(hotdogTotal);
 				var frenchfryTotal = (quantObj["French Fries"] * priceObj["French Fries"]);
+				console.log(frenchfryTotal);
 				var drinkTotal = (quantObj["Drinks"] * priceObj["Drinks"]);
+				console.log(drinkTotal);
 
 				subtotal = hotdogTotal + frenchfryTotal + drinkTotal;
+				console.log(subtotal);
 
 				if (subtotal >= discountPrice) {
+					discTotal = subtotal;
 					subtotal = (subtotal * (1 - discount)); 
 					isDiscount = true; 
 				} 
 				var taxTotal = subtotal * tax;
 				total = subtotal + (taxTotal);
-				discountSavings = discount * subtotal;
+				discountSavings = discount * discTotal;
 
 				var orderStr = "Items orderered: " + quantObj["Hot Dogs"] + " Hot Dogs" + ", " + quantObj["French Fries"] + " French Fries" + ", " +  quantObj["Drinks"] + " Drinks"; 
 				var subtotalStr = "Subtotal: $" + subtotal.toFixed(2); 
 				var discountStr = "Discount: -$" + (discountSavings.toFixed(2));
 				var taxStr = "Tax: $" + taxTotal.toFixed(2); 
 				var totalStr = "Total: $" + total.toFixed(2);
+				var discTotStr = "Subtotal before discount: $" + discTotal.toFixed(2);
 
 				if (isDiscount) {
-					alert(orderStr + "\n" + subtotalStr + "\n" + discountStr + "\n" + taxStr + "\n" + totalStr)
+					alert(orderStr + "\n" + discTotStr + "\n" + discountStr + "\n" + subtotalStr + "\n" + taxStr + "\n" + totalStr)
 				} else {
 					alert(orderStr + "\n" + subtotalStr + "\n" + taxStr + "\n" + totalStr)
 				}

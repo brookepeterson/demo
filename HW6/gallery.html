@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<title>Homework 4: Lottery</title>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bad+Script&display=swap" rel="stylesheet">
+		<style> 
+			img {
+				height: 150px;
+				border: 50px;
+				padding: 10px;
+			}
+			body {
+				font-family: 'Bad Script', cursive;
+				font-size: 18px;
+				text-align: center;
+			}
+
+			h1 {
+				font-family: 'Bad Script', cursive;
+				font-size: 32px;
+				padding: 0px;
+				margin: 0px;
+			}
+			h2 {
+				font-family: 'Bad Script', cursive;
+				font-size: 24px;
+				margin: 0px;
+			}
+	
+		</style>
+
+	</head>
+	<body>
+		<h1> Welcome to Brooke's Gallery!</h1>
+		<h2> Click on any image to receive details about the name and price. </h2>
+
+		<div id="myImg"></div>
+		<div class="message" style="padding: 10px"></div>
+		<div id="largeImg" style="padding-top: 40px;">
+			<img src="" style= "transform: scale(1.8)">
+		</div>
+
+		<script language="javascript" type="text/javascript"> 
+
+			$(function() {
+			    $('#largeImg img').hide();
+			});
+
+			function gallery(name, price, small_img, large_img) {
+				this.name = name;
+				this.price = price; 
+				this.small_img = small_img; 
+				this.large_img = large_img; 
+			}
+
+			function makeImage(imageURL, name, price) {
+				var img = document.createElement("IMG");
+				img.src = imageURL;
+				img.title = name;
+				img.id = price;
+				document.getElementById("myImg").appendChild(img);
+
+			}
+
+			function hideMessage() {
+				$(".message").empty();
+
+			}
+
+			var gal1 = new gallery("The Birth of Venus", 1049, "Birth-Venus.jpg", "Birth-Venus.jpg");
+			var gal2 = new gallery("The Girl with the Pearl Earring", 20500, "Girl-Pearl-Earring.jpg", "Girl-Pearl-Earring.jpg");
+			var gal3 = new gallery("Vincent Van Gough", 2672, "Vincent.jpg", "Vincent.jpg");
+			var gal4 = new gallery("Bedroom at Arles", 1521, "Room.jpg", "Room.jpg");
+			var gal5 = new gallery("The Persistence of Memory", 1904, "Melting-Clocks.jpg", "Melting-Clocks.jpg");
+			var gal_arr = new Array(gal1, gal2, gal3, gal4, gal5);
+			for (var i = 0; i < gal_arr.length; i++) {
+				makeImage(gal_arr[i].small_img, gal_arr[i].name, gal_arr[i].price);
+
+			}
+
+			$("img").mouseenter(function(){   
+				var photoSrc = ($(this).attr('src'));
+	            $("#largeImg img").attr('src', photoSrc);  
+	            $("#largeImg img").fadeIn('slow');    
+	        });
+
+	        $("img").mouseleave(function(){     
+	            $("#largeImg img").hide();    
+	        });
+
+	        var timeout;
+	        $("img").click(function(){
+	        	window.clearTimeout(timeout);
+				var photoName = ($(this).attr('title'));
+				var photoPrice = ($(this).attr('id'));
+				$(".message").text(photoName + ":" + " $" + photoPrice);
+				timeout = window.setTimeout(hideMessage, 3000);
+			});
+
+		</script>
+
+
+
+	</body>
+	</html>

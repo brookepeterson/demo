@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<title>JSON Homework 7</title>
+
+    <style> 
+        h1 {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #800000;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #000;
+            font-size: 28px;
+            text-decoration: underline;
+        }
+        p {
+           font-family: 'Source Sans Pro', sans-serif;
+
+        }
+        body {
+            margin: 20px;
+            font-family: 'Source Sans Pro', sans-serif;
+
+        }
+
+        td {
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            border: 2px solid rgb(200, 200, 200);
+        }
+
+        tr {
+            border: 2px solid rgb(200, 200, 200);
+        }
+
+        th {
+            background-color: #800000;
+            color: #fff;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(200, 200, 200);
+            letter-spacing: 1px;
+            font-size: 14px;
+            width: 50%;
+            height: 100%;
+        }
+
+        .submit-button {
+          font-size: 14px;
+          background-color: #00ab66;
+          font-weight: bold;
+          color: #fff;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 125px;
+          height: 25px;
+        }
+        .dropdown {
+          padding: 10px 15px 11px;
+          font-size: 14px;
+          background-color: #800000;
+          font-weight: bold;
+          color: #fff;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 125px;
+          height: 25px;
+        }
+
+    </style>
+</head>
+
+    <body>
+        <h1> Homework 7: JSON </h1>
+        <h2 style="text-align: center"> Brooke Peterson </h2>
+        <h2> Serialized Data: </h2>
+        <div id="serial"></div>
+
+        <h2> User Friendly Data: </h2>
+        <table id="myTable">
+            <tr>
+                <th>Song Name</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Year Released</th>
+            </tr>
+        </table>
+
+        <h2> Filter Songs by Genre: </h2>
+        <select name="genres" id="genres" class="dropdown" style="size: 100%">
+            <option value="Select">Select</option>
+            <option value="Pop">Pop</option>
+            <option value="R&B">R&B</option>
+            <option value="Indie Rock">Indie Rock</option>
+            <option value="Folk Rock">Folk Rock</option>
+            <option value="Rock">Rock</option>
+            <option value="Rap">Rap</option>
+            <option value="Country">Country</option>
+        </select>
+        <button type="button" class="submit-button" onClick="appendGenre()" style="width: 100px">Submit</button>
+
+        <div id="genreDiv" style="padding: 20px 0 100px 0"></div>
+
+      <script language="javascript" type="text/javascript"> 
+        
+            // make set list an array of JSON objects
+            var setList = [
+          
+            {
+            "songName":"What Makes You Beautiful", 
+            "artist":"One Direction", 
+            "genre": "Pop", 
+            "year": "2011"
+            },
+            {
+              "songName":"Pink and White", 
+              "artist":"Frank Ocean", 
+              "genre": "R&B", 
+              "year": "2016"
+            },
+            {
+              "songName":"Unbelievers", 
+              "artist":"Vampire Weekend", 
+              "genre": "Indie Rock", 
+              "year": "2013"
+            },
+            {
+              "songName":"Chocolate", 
+              "artist":"The 1975", 
+              "genre": "Indie Rock", 
+              "year": "2013"
+            },
+            {
+              "songName":"Mrs. Robinson", 
+              "artist":"Simon and Garfunkel", 
+              "genre": "Folk Rock", 
+              "year": "1968"
+            },
+            {
+              "songName":"Castle on the Hill", 
+              "artist":"Ed Sheeran", 
+              "genre": "Pop", 
+              "year": "2017"
+            },
+            {
+              "songName":"Don't Stop Me Now", 
+              "artist":"Queen", 
+              "genre": "Rock", 
+              "year": "1978"
+            },
+            {
+              "songName":"HUMBLE.", 
+              "artist":"Kendrick Lamar", 
+              "genre": "Rap", 
+              "year": "2017"},
+            {
+              "songName":"Tequila", 
+              "artist":"Dan + Shay", 
+              "genre": "Country", 
+              "year": "2018"
+            },
+            {
+              "songName":"Gone", 
+              "artist":"JR JR", 
+              "genre": "Pop", 
+              "year": "2015"
+            }
+      ]
+
+        //make each JSON object in the array a string and append it 
+        //to div with id "serial"    
+        $.each(setList, function(index, value) {
+            var val = value;
+            var serialized = JSON.stringify(value);
+            $("#serial").append(serialized + '<br>');
+            $("#myTable").append("<tr>" + "<td>" + val.songName + "</td>" + "<td>" + val.artist 
+                + "</td>" + "<td>" + val.genre + "</td>" + "<td>" + val.year + "</td>" + "</tr>");
+        })
+
+        //filters through genres in array and only displays selected genre from dropdown
+        function appendGenre() {
+            $('#genreDiv').empty(); //empty div 
+            var selected = document.getElementById("genres");
+            var genre = selected.options[selected.selectedIndex].value; //stores selected value
+
+            //iterates through array to display song of matching genre
+            $.each(setList, function(index, value) {
+                var val = value;
+                if (val.genre == genre) {
+                    $("#genreDiv").append(val.songName + '<br>');
+                }
+            })
+        }
+
+    	</script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

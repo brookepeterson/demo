@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework 8: APIs</title>
+<meta charset="utf-8"/>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300&display=swap" rel="stylesheet">
+	<style> 
+		h1 {
+			font-family: 'Josefin Slab', serif;
+			color: #F64445;
+			font-size: 48px;
+			text-align: center;
+        }
+
+        h2 {
+			font-family: 'Josefin Sans', sans-serif;
+			color: #000;
+			font-size: 24px;
+			font-weight: lighter;
+        }
+        p {
+			font-family: 'Source Sans Pro', sans-serif;
+
+        }
+		.submit-button {
+			font-size: 14px;
+			background-color: #00ab66;
+			font-weight: bold;
+			color: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+			width: 250px;
+			height: 50px;
+        }
+
+        #infoDiv {
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+			font-family: 'Josefin Sans', sans-serif;
+			font-weight: lighter;
+			font-size: 18px;
+
+
+        }
+    </style>
+
+</head>
+
+	
+<body>
+	<div style="text-align: center; padding: 50px"> 
+		<h1> Welcome to the Personal IP Address Info Finder! </h1>
+		<h2> Simply click the button below to find out all the information we can gather solely from your IP address!</h2>
+	</div>
+
+	<div style="text-align: center;"> 
+		<button type="button" class="submit-button" onClick="getInfo()">Find my IP Information!</button>
+	</div>
+
+	<div id="infoDiv"></div>
+	<div id="spooky" style="text-align: center; padding: 20px"> <h2> <i>Spooky, huh? </i></h2> </div>
+
+	<!-- hide spooky div on page load -->
+	<script>
+		$(function() {
+			$('#spooky').hide();
+		});
+
+		//send request to scrape data from endpoint of API
+		function getInfo() {
+			var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "https://api.ipdata.co/?api-key=a6f536fb25e8e8cbc2b3ea8ed5b95fffa5033db2f9e5c39dcacd63f5",
+			"method": "GET"
+		}
+
+		//show spooky message function
+		function showMessage() {
+			$("#spooky").show();
+		}
+
+		//scrapes data from endpoint of API and converts from Javascript object to JSON string to display in div
+		$.ajax(settings).done(function(response) {
+			$('#infoDiv').empty(); //empty div 
+			var format = JSON.stringify(response); //convert from Javascript object to JSON string
+			format = JSON.parse(format); //parse information by keys and values
+
+			//append IP address, city, state, zip code, longitude, latitude and flag to div
+			$("#infoDiv").append("<b> IP: </b>" + format["ip"] + "<br>");
+			$("#infoDiv").append("<b> Location: </b>: " + format["city"] + ", " + format["region"] + ", " + format["postal"] + "<br>");
+			$("#infoDiv").append("<b> Latitude: </b>" + format["latitude"] + "<br>");
+			$("#infoDiv").append("<b> Longitude: </b>" + format["longitude"] + "<br>");
+			$("#infoDiv").append("<b> Flag: </b>" + format["emoji_flag"] + "<br>");
+			$("#spooky").delay(800).fadeIn(400); //fade in spooky message
+		});
+	}
+	</script>
+
+</body>
+</html>

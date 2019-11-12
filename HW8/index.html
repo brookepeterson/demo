@@ -18,12 +18,15 @@
 
         h2 {
 			font-family: 'Josefin Sans', sans-serif;
-			color: #000;
+			color: #55BCC9;
 			font-size: 24px;
 			font-weight: lighter;
         }
         p {
-			font-family: 'Source Sans Pro', sans-serif;
+			font-family: 'Josefin Sans', sans-serif;
+			color: #000;
+			font-size: 18px;
+			font-weight: lighter;
 
         }
 		.submit-button {
@@ -53,17 +56,24 @@
 
 	
 <body>
-	<div style="text-align: center; padding: 50px"> 
-		<h1> Welcome to the Personal IP Address Info Finder! </h1>
+	<div style="text-align: center; padding: 20px 50px 20px 50px"> 
+		<h1> Welcome to the Personal IP Address Geolocation Finder! </h1>
 		<h2> Simply click the button below to find out all the information we can gather solely from your IP address!</h2>
 	</div>
 
 	<div style="text-align: center;"> 
-		<button type="button" class="submit-button" onClick="getInfo()">Find my IP Information!</button>
+		<button type="button" class="submit-button" onClick="getInfo()">Find My Location!</button>
 	</div>
 
 	<div id="infoDiv"></div>
-	<div id="spooky" style="text-align: center; padding: 20px"> <h2> <i>Spooky, huh? </i></h2> </div>
+	<div id="spooky" style="text-align: center; padding: 10px"> <h2> <i>Spooky, huh? </i></h2> </div>
+
+	<div id="questions" style="text-align: center; padding: 0 50px 0 50px"> 
+		<p> 1. The API I selected is a free IP Geolocation Service. It tracks the user's IP address and outputs details of the user's current location. </p> 
+		<p> 2. I found my API at: <a href="https://ipdata.co/"> <u>https://ipdata.co/</u></a> </p>
+		<p> 3. The options I used in my API request were the following: IP address, city, region, postal code, latitude, longitude, and flag emoji. </p>
+		<p> 4. This API could be helpful if you wanted to know your device's specific IP address, or if you wanted to find your exact location and coordinates. </p>
+	</div>
 
 	<!-- hide spooky div on page load -->
 	<script>
